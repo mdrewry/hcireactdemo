@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import AddTask from "./AddTask";
 import Task from "./Task";
+import Header from "./Header";
 function App() {
   const [tasks, setTasks] = useState([]);
   const [message, setMessage] = useState("Welcome!");
@@ -25,9 +26,7 @@ function App() {
   }, [tasks]);
   return (
     <div className="App">
-      <div className="messageSpacer">
-        {/* <h4>{message}</h4> */}
-      </div>
+      <Header message={message} />
       <AddTask tasks={tasks} setTasks={setTasks} setMessage={setMessage} />
       <div className="taskListWrapper">
         {tasks.map((task, key) => (
