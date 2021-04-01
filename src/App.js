@@ -1,10 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import Button from "react-bootstrap/Button";
 import "./App.css";
 import AddTask from "./AddTask";
 import Task from "./Task";
 function App() {
   const [tasks, setTasks] = useState([]);
-  useEffect(() => {}, []);
+
   const handleCompleteTask = (index) => {
     let task = tasks[index];
     task.completed = !task.completed;
@@ -13,7 +14,7 @@ function App() {
   };
   return (
     <div className="App">
-      <h4>Tasks</h4>
+      <h2>Task List Manager</h2>
       <AddTask tasks={tasks} setTasks={setTasks} />
       <div className="taskListWrapper">
         {tasks.map((task, key) => (

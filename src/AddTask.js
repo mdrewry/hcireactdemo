@@ -1,12 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 const AddTask = ({ tasks, setTasks }) => {
+  const [message, setMessage] = useState("Welcome Back!")
   const [open, setOpen] = useState(false);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [priority, setPriority] = useState(1);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setMessage("");
+    }, 2000)
+  }, []);
+  
   const handleOpen = () => {
     setOpen(true);
   };
@@ -29,7 +37,10 @@ const AddTask = ({ tasks, setTasks }) => {
   };
   return (
     <div>
-      <Button onClick={handleOpen}>Add Task</Button>
+      <h4>{message}</h4>
+      <div style={{textAlign:'center'}}>
+        <Button onClick={handleOpen}>Add Task</Button>
+      </div>
       <Modal show={open} onHide={handleClose}>
         <Modal.Header className="rowCenter">
           <Modal.Title>Add Task</Modal.Title>
