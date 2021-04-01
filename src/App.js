@@ -26,7 +26,7 @@ function App() {
   return (
     <div className="App">
       <div className="messageSpacer">
-        <h4>{message}</h4>
+        {/* <h4>{message}</h4> */}
       </div>
       <AddTask tasks={tasks} setTasks={setTasks} setMessage={setMessage} />
       <div className="taskListWrapper">
