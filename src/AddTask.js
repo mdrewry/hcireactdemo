@@ -46,7 +46,7 @@ const AddTask = (props) => {
         onClick={handleOpen}
         style={{
           position: "absolute",
-          left: "60vw",
+          left: "63vw",
           top: "5vh",
           transform: "scale(2.3)",
           color: "rgba(0, 0, 233, 0.70)",
