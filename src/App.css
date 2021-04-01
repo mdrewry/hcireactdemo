@@ -8,6 +8,21 @@
 .rowCenter {
   display: flex;
   flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+.fill {
+  flex-grow: 1;
+}
+.messageSpacer {
+  min-height: 40px;
+}
+.completeTaskButton {
+  white-space: nowrap;
+  margin-right: 16px;
+}
+.maxWidth {
+  width: 100%;
 }
 .addTaskWrapper {
   height: 30vh;

@@ -1,20 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
-const AddTask = ({ tasks, setTasks }) => {
-  const [message, setMessage] = useState("Welcome Back!")
+import RangeSlider from "react-bootstrap-range-slider";
+const AddTask = ({ tasks, setTasks, setMessage }) => {
   const [open, setOpen] = useState(false);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
-  const [priority, setPriority] = useState(1);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setMessage("");
-    }, 2000)
-  }, []);
-  
+  const [priority, setPriority] = useState("1");
+  const determineVariant = () => {
+    if (priority === "1") return "info";
+    if (priority === "2") return "warning";
+    return "danger";
+  };
+  const variant = determineVariant();
   const handleOpen = () => {
     setOpen(true);
   };
@@ -32,17 +31,16 @@ const AddTask = ({ tasks, setTasks }) => {
     setTasks([newTask, ...tasks]);
     setName("");
     setDescription("");
-    setPriority(1);
+    setPriority("1");
+    setMessage("Task Added!");
     setOpen(false);
   };
+
   return (
-    <div>
-      <h4>{message}</h4>
-      <div style={{textAlign:'center'}}>
-        <Button onClick={handleOpen}>Add Task</Button>
-      </div>
+    <>
+      <Button onClick={handleOpen}>Add Task</Button>
       <Modal show={open} onHide={handleClose}>
-        <Modal.Header className="rowCenter">
+        <Modal.Header>
           <Modal.Title>Add Task</Modal.Title>
         </Modal.Header>
         <Modal.Body>
@@ -55,7 +53,7 @@ const AddTask = ({ tasks, setTasks }) => {
                 onChange={(e) => handleUpdateField(e, setName)}
               />
             </Form.Group>
-            <Form.Group controlId="description">
+            <Form.Group controlId="description" className="mt-3">
               <Form.Label>Description</Form.Label>
               <Form.Control
                 as="textarea"
@@ -65,12 +63,15 @@ const AddTask = ({ tasks, setTasks }) => {
                 placeholder="Take out the trash"
               />
             </Form.Group>
-            <Form.Group controlId="priority">
+            <Form.Group controlId="priority" className="mt-3">
               <Form.Label>Priority</Form.Label>
-              <Form.Control
+              <RangeSlider
+                className="maxWidth"
                 type="range"
                 min={1}
                 max={3}
+                tooltipPlacement="top"
+                variant={variant}
                 value={priority}
                 onChange={(e) => handleUpdateField(e, setPriority)}
               />
@@ -81,7 +82,7 @@ const AddTask = ({ tasks, setTasks }) => {
           </Form>
         </Modal.Body>
       </Modal>
-    </div>
+    </>
   );
 };
 export default AddTask;
