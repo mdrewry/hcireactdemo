@@ -6,7 +6,8 @@ import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 
 import RangeSlider from "react-bootstrap-range-slider";
-const AddTask = ({ tasks, setTasks, setMessage }) => {
+const AddTask = (props) => {
+  const { tasks, setTasks, setMessage } = props;
   const [open, setOpen] = useState(false);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
