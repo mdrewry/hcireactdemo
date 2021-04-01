@@ -25,7 +25,6 @@ function App() {
   }, [tasks]);
   return (
     <div className="App">
-      <h2>Task Manager</h2>
       <div className="messageSpacer">
         <h4>{message}</h4>
       </div>

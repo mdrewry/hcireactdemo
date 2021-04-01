@@ -31,3 +31,44 @@
   width: 50%;
   margin-top: 5vh;
 }
+
+.greenRect{
+
+  position: absolute;
+  width: 100vw;
+  height: 7vh;
+  left: 0vw;
+  top: 4vh;
+  
+  background: rgba(63, 226, 49, 0.18);
+}
+
+.blueRect1{
+  position: absolute;
+  width: 10vw;
+  height: 100vh;
+  left: 5vw;
+  top: 0vh;
+
+  background: rgba(27, 228, 228, 0.21);
+}
+
+.blueRect2{
+  position: absolute;
+  width: 10vw;
+  height: 100vh;
+  left: 85vw;
+  top: 0vh;
+
+  background: rgba(27, 228, 228, 0.21);
+}
+
+.task_logo{
+  position: absolute;
+  left:35vw;
+  top: 0vh;
+}
+
+
+
+

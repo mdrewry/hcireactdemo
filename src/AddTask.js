@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
+import IconButton from '@material-ui/core/IconButton';
+import AddCircle from '@material-ui/icons/AddCircle';
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
+import Header from "./Header";
 import RangeSlider from "react-bootstrap-range-slider";
 const AddTask = ({ tasks, setTasks, setMessage }) => {
   const [open, setOpen] = useState(false);
@@ -38,7 +41,9 @@ const AddTask = ({ tasks, setTasks, setMessage }) => {
 
   return (
     <>
-      <Button onClick={handleOpen}>Add Task</Button>
+      <Header/>
+      <IconButton onClick={handleOpen} style = {{position: 'absolute', left: '60vw', top: '5vh', transform: "scale(2.3)", color: 'rgba(0, 0, 233, 0.70)'}}><AddCircle/></IconButton>
+      <div style={{height: '6vh'}}></div>
       <Modal show={open} onHide={handleClose}>
         <Modal.Header>
           <Modal.Title>Add Task</Modal.Title>
